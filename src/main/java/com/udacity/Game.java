@@ -180,7 +180,15 @@ public class Game {
             }
         }
         //Result is Tie if no free spots are available on the grid
-        if (freeSpots == 0){
+        int occupiedSpots = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid.length; j++) {
+                if (grid[i][j] != '-') {
+                    occupiedSpots = occupiedSpots + 1;
+                }
+            }
+        }
+        if (occupiedSpots == 9 && result == "None") {
             result = "Tie";
         }
         return result;
